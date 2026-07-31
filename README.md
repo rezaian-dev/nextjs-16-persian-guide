@@ -42,7 +42,7 @@
 
 ## درباره راهنما
 
-مرجع فارسی Next.js 16 در ۳۷ فصل؛ از App Router و Server Components تا Cache Components، امنیت، تست، Core Web Vitals و استقرار. دانلود رایگان PDF و EPUB.
+مرجع فارسی Next.js 16 در ۳۷ فصل؛ از App Router و Server Components تا Cache Components، امنیت، تست، Core Web Vitals و استقرار. رایگان: نسخهٔ آنلاین، PDF و EPUB.
 
 این راهنما بر **مدل ذهنی، تحلیل رفتار و تصمیم‌گیری فنی** تمرکز دارد. هدف این نیست که مجموعه‌ای از APIها حفظ شود؛ هدف این است که بتوانید مسئله را بفهمید، راه‌حل را ارزیابی کنید و کدی بنویسید که در پروژهٔ واقعی قابل نگهداری باشد.
 
@@ -167,17 +167,21 @@
 
 ## نسخه‌های در دسترس
 
+### ONLINE — [نسخهٔ آنلاین](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/)
+
+**۱۷۸ صفحه · ۳۷ فصل** — خواندن کامل کتاب در مرورگر، بدون دانلود؛ با فهرست فصل‌ها و پیوند مستقیم به هر فصل (مثلاً [فصل ۲۳](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-23)).
+
 ### PDF — [نسخهٔ اصلی](./docs/pdf/Nextjs16-Persian-Guide.pdf)
 
 **۱۷۸ صفحه · A4** — نسخهٔ رنگی، قابل جست‌وجو و دارای فهرست داخلی برای مطالعه روی دسکتاپ و تبلت.
 
 ### EPUB — [نسخهٔ کتاب‌خوان](./docs/pdf/Nextjs16-Persian-Guide.epub)
 
-**راست‌به‌چپ · مناسب موبایل** — نسخهٔ بازچینش‌پذیر برای موبایل، تبلت و نرم‌افزارهای مطالعه EPUB.
+**راست‌به‌چپ · مناسب موبایل** — صفحه‌های کتاب، فصل‌بندی‌شده برای موبایل، تبلت و نرم‌افزارهای مطالعه EPUB.
 
-### GITHUB — [سورس و فصل‌ها](https://github.com/rezaian-dev/nextjs-16-persian-guide)
+### GITHUB — [سورس ابزارها](https://github.com/rezaian-dev/nextjs-16-persian-guide)
 
-**Markdown · Python** — متن ساختاری فصل‌ها، ابزار ساخت و دارایی‌های پروژه در مخزن عمومی.
+**Python · CC BY-NC-SA** — ابزارهای ساخت نسخه‌ها، دارایی‌ها و کنترل کیفیت در مخزن عمومی.
 
 <a id="build"></a>
 
@@ -198,6 +202,7 @@ source .venv/bin/activate       # macOS / Linux
 python -m pip install -r src/requirements.txt
 python src/tools/build_edition.py
 python src/tools/build_epub.py      # EPUB
+python src/tools/build_reader.py    # نسخهٔ آنلاین در docs/book/
 python src/tools/make_previews.py
 python src/tools/make_shots.py
 python src/tools/make_card.py
@@ -231,7 +236,7 @@ python src/tools/qa.py
 
 ## مشارکت
 
-برای گزارش خطا، پیشنهاد اصلاح یا بهبود محتوا از [راهنمای مشارکت](./CONTRIBUTING.md) استفاده کنید. Pull Requestها بهتر است کوچک، متمرکز و همراه با توضیح روشن دربارهٔ دلیل تغییر باشند.
+برای گزارش خطا یا پیشنهاد اصلاح، یک [Issue](https://github.com/rezaian-dev/nextjs-16-persian-guide/issues) باز کنید. Pull Requestها بهتر است کوچک، متمرکز و همراه با توضیح روشن دربارهٔ دلیل تغییر باشند.
 
 - [گزارش یک مشکل](https://github.com/rezaian-dev/nextjs-16-persian-guide/issues)
 - [مشاهده مخزن](https://github.com/rezaian-dev/nextjs-16-persian-guide)
