@@ -5,8 +5,8 @@
   "dir": "rtl",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#050816",
-  "theme_color": "#050816",
+  "background_color": "#111a30",
+  "theme_color": "#111a30",
   "icons": [
     {
       "src": "assets/next-logo-64.png",
