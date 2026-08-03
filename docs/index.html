@@ -46,7 +46,7 @@
           <span class="latin text-right text-sm font-bold">Next.js 16</span>
         </span>
       </a>
-      <ul id="primary-menu" class="mx-auto hidden items-center gap-1 p-0 md:flex max-md:absolute max-md:top-[calc(100%+10px)] max-md:inset-x-0 max-md:grid max-md:rounded-[15px] max-md:border max-md:border-slate-400/20 max-md:bg-[#070c1b]/98 max-md:p-2 max-md:shadow-glow">
+      <ul id="primary-menu" class="mx-auto hidden items-center gap-1 p-0 md:flex">
         <li><a class="block rounded-lg px-2.5 py-2 text-[13.5px] font-semibold text-slate-400 no-underline hover:bg-slate-400/10 hover:text-white" href="#why">ویژگی‌ها</a></li>
         <li><a class="block rounded-lg px-2.5 py-2 text-[13.5px] font-semibold text-slate-400 no-underline hover:bg-slate-400/10 hover:text-white" href="#path">مسیر کتاب</a></li>
         <li><a class="block rounded-lg px-2.5 py-2 text-[13.5px] font-semibold text-slate-400 no-underline hover:bg-slate-400/10 hover:text-white" href="#preview">پیش‌نمایش</a></li>
@@ -57,12 +57,44 @@
       <div class="ms-auto flex items-center gap-2">
         <a class="btn btn-primary !min-h-10 !px-3.5 !text-[13px] max-md:hidden" href="book/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H12v18H6.5A2.5 2.5 0 0 1 4 18.5v-13Z"/><path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H12v18h5.5a2.5 2.5 0 0 0 2.5-2.5v-13Z"/></svg><span>مطالعه آنلاین</span></a>
         <a class="btn btn-secondary !min-h-10 !px-3.5 !text-[13px]" href="pdf/Nextjs16-Persian-Guide.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 19v2h16v-2"/></svg><span class="max-[390px]:hidden">دانلود PDF</span></a>
-        <button class="menu-toggle grid h-[42px] w-[42px] place-items-center rounded-[11px] border border-slate-400/20 bg-slate-900/50 text-white md:hidden" type="button" aria-controls="primary-menu" aria-expanded="false" aria-label="بازکردن منو">
-          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <button class="menu-toggle" type="button" aria-controls="mobile-menu" aria-expanded="false" aria-label="بازکردن منو">
+          <svg class="ic-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg class="ic-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
         </button>
       </div>
     </nav>
   </header>
+
+  <div class="m-scrim" id="m-scrim" hidden></div>
+  <aside class="m-drawer" id="mobile-menu" hidden aria-label="منوی موبایل">
+    <div class="m-top">
+      <div class="m-brand">
+        <span class="m-logo"><img src="assets/next-logo-64.png" width="22" height="22" alt=""></span>
+        <span class="m-name"><span class="latin">Next.js 16</span><em>مرجع فارسی · ۳۷ فصل</em></span>
+      </div>
+      <button class="m-x" id="m-x" type="button" aria-label="بستن منو">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+    <nav class="m-nav" aria-label="پیوندهای بخش‌ها"><a class="m-row" href="#why" style="--i:0"><span class="m-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 2.1 4.9L19 10l-4.9 2.1L12 17l-2.1-4.9L5 10l4.9-2.1L12 3Z"/></svg></span><span class="m-tx"><strong>ویژگی‌ها</strong><em>چرا این کتاب</em></span><svg class="m-ch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></a><a class="m-row" href="#path" style="--i:1"><span class="m-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 7h9a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h10"/><circle cx="19" cy="7" r="2"/><circle cx="5" cy="17" r="2"/></svg></span><span class="m-tx"><strong>مسیر کتاب</strong><em>چهار گام یادگیری</em></span><svg class="m-ch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></a><a class="m-row" href="#preview" style="--i:2"><span class="m-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="14" height="14" rx="2"/><path d="M21 8v10a3 3 0 0 1-3 3H8"/><path d="m7 13 2.5-2.5L13 14"/></svg></span><span class="m-tx"><strong>پیش‌نمایش</strong><em>نگاهی به داخل</em></span><svg class="m-ch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></a><a class="m-row" href="#editions" style="--i:3"><span class="m-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 19v2h16v-2"/></svg></span><span class="m-tx"><strong>نسخه‌ها</strong><em>آنلاین · PDF · EPUB</em></span><svg class="m-ch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></a><a class="m-row" href="#series" style="--i:4"><span class="m-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 4.5-9 4.5-9-4.5L12 3Z"/><path d="m3 12 9 4.5L21 12"/><path d="m3 16.5 9 4.5 9-4.5"/></svg></span><span class="m-tx"><strong>مجموعه</strong><em>چهار مرجع فارسی</em></span><svg class="m-ch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></a><a class="m-row" href="#author" style="--i:5"><span class="m-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M5 21c0-3.9 3.1-7 7-7s7 3.1 7 7"/></svg></span><span class="m-tx"><strong>نویسنده</strong><em>دربارهٔ نویسنده</em></span><svg class="m-ch" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></a></nav>
+    <div class="m-foot">
+      <a class="btn btn-primary w-full" href="book/">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H12v18H6.5A2.5 2.5 0 0 1 4 18.5v-13Z"/><path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H12v18h5.5a2.5 2.5 0 0 0 2.5-2.5v-13Z"/></svg>
+        مطالعه آنلاین
+      </a>
+      <div class="m-foot-2">
+        <a class="btn" href="pdf/Nextjs16-Persian-Guide.pdf" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M4 19v2h16v-2"/></svg>
+          دانلود PDF
+        </a>
+        <a class="btn" href="https://github.com/rezaian-dev/nextjs-16-persian-guide" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.84.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.5 9.5 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+          مخزن
+        </a>
+      </div>
+      <small>۳۷ فصل · ۱۷۸ صفحه · رایگان و متن‌باز</small>
+    </div>
+  </aside>
   <main id="main">
     <section class="mx-auto grid w-[min(1180px,calc(100%-40px))] items-center gap-12 py-16 md:grid-cols-[1.08fr_.82fr]" id="top">
       <div class="reveal">
