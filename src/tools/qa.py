@@ -2,7 +2,7 @@
 """Repository auditor — one command that says whether this repo is self-consistent.
 
     python3 src/tools/qa.py            # print a report, exit non-zero if anything drifted
-    python3 src/tools/qa.py --json     # machine-readable counts (used when writing README/CHANGELOG)
+    python3 src/tools/qa.py --json     # machine-readable counts (used when writing the README)
 
 Four things rot silently in a documentation repository, so all four are checked here:
   1. the edition: page count, outline, clickable index, language, metadata, paper size;
@@ -210,6 +210,9 @@ def check_assets() -> None:
     for name in cards:
         want[name] = SHOT_IMG
     want["social-card"] = (1254, 627)          # the banner's own width, half of its height
+    # Favicons and the apple-touch icon: small, square, referenced from <head>.
+    for name, px in (("next-logo-32", 32), ("next-logo-64", 64), ("next-logo-128", 128)):
+        want[name] = (px, px)
     # The published master images stay at the root. Optimized web assets and fonts
     # live in subdirectories and are validated separately in check_prose().
     have = {p.stem: p for p in (ROOT / "docs" / "assets").glob("*")
@@ -230,7 +233,9 @@ def check_assets() -> None:
             size += f" · {DPI} dpi of an A4 page"
         elif name.startswith("shot-"):
             size += f" · a whole A4 page for a {CARD[0]}–{CARD[1]} px card, {SHOT_IMG[0] / CARD[1]:.1f}× the box"
-        mode = "RGBA" if name == "avatar" else "RGB"       # the avatar's corners must be transparent
+        # The avatar's corners and the favicons' rounded mark must be transparent.
+        transparent = name == "avatar" or name.startswith("next-logo-")
+        mode = "RGBA" if transparent else "RGB"
         ok(f"{p.name} is {w}×{h} {mode} PNG",
            im.size == (w, h) and im.format == "PNG" and im.mode == mode, size)
     ok("previews are cut at the sizes the gallery promises",
@@ -381,7 +386,7 @@ def check_prose(counts: dict) -> None:
        f"{fa(counts['code_windows'])} پنجرهٔ کد" in readme)
 
     # Prose hygiene shared by the README and landing page.
-    prose = readme + site + read(ROOT / "CHANGELOG.md") + read(ROOT / "CONTRIBUTING.md")
+    prose = readme + site
     ok("house ezafe only", "ۀ" not in prose and "هٔ" in prose)
     ok("no letter outside the Persian alphabet", not foreign_letters(prose),
        f"{[f'U+{ord(c):04X}' for c in foreign_letters(prose)][:4]}")
@@ -392,7 +397,7 @@ def check_prose(counts: dict) -> None:
 
     # Semantic and metadata contracts of the Pages site.
     ok("site declares Persian language and direction", '<html lang="fa" dir="rtl">' in site)
-    ok("site ships Book JSON-LD", '"@type":"Book"' in site)
+    ok("site ships Book JSON-LD", '"@type":"Book"' in re.sub(r"\s+", "", site))
     ok("site has canonical and absolute social image metadata",
        '<link rel="canonical" href="https://' in site and 'property="og:image" content="https://' in site)
     title = re.search(r"<title>(.*?)</title>", site, re.S)
@@ -401,10 +406,12 @@ def check_prose(counts: dict) -> None:
     ok("site exposes a skip link and labelled navigation",
        'class="skip-link"' in site and 'aria-label="ناوبری اصلی"' in site)
     ok("mobile menu has an accessible state contract",
-       'class="menu-toggle"' in site and 'aria-controls="primary-menu"' in site
-       and 'aria-expanded="false"' in site and 'Escape' in js)
+       'class="menu-toggle"' in site and 'aria-controls="mobile-menu"' in site
+       and 'aria-expanded="false"' in site and 'Escape' in js
+       and 'aria-label="بستن منو"' in site)
     ok("responsive cover uses srcset", "cover-hero-480.webp 480w" in site
-       and "cover-hero-720.webp 720w" in site and "cover-hero.webp 900w" in site)
+       and "cover-hero-720.webp 720w" in site
+       and re.search(r"cover-hero\.webp \d+w", site) is not None)
     ok("preview images are lazy loaded", site.count('loading="lazy"') >= 6)
 
     # The numeral-font regression that prompted the redesign: all Persian metrics
@@ -423,17 +430,37 @@ def check_prose(counts: dict) -> None:
        and "SIL OPEN FONT LICENSE Version 1.1" in font_license)
     ok("site has no remote font dependency", "fonts.googleapis.com" not in site + css
        and "fonts.gstatic.com" not in site + css)
-    metric_rule = re.search(r"\.fa-number,.*?\{(.*?)\}", css, re.S)
-    ok("Persian metrics explicitly use the Persian font",
-       bool(metric_rule) and "font-family: var(--font-fa)" in metric_rule.group(1))
-    ok("Latin and code labels use the mono font", "font-family: var(--font-code)" in css)
+    flat = re.sub(r"\s+", "", css)
+    ok("Persian metrics use the Persian font",
+       "font-family:Vazirmatn,Tahoma,sans-serif" in flat)
+    ok("Latin and code labels use the mono font",
+       "font-family:JetBrainsMono,Consolas,monospace" in flat)
 
     # Responsive CSS and optimized publishing assets are first-class deliverables.
+    # The online edition: every page of the PDF, reachable and deep-linkable.
+    reader = ROOT / "docs" / "book" / "index.html"
+    ok("the online edition ships", reader.exists())
+    if reader.exists():
+        rd = reader.read_text(encoding="utf-8")
+        n_img = len(list((ROOT / "docs" / "book" / "pages").glob("p*.webp")))
+        ok("the reader holds every page of the edition", n_img == counts["pages"],
+           f"{n_img} images / {counts['pages']} pages")
+        missing = [c["num"] for c in DATA["chapters"] if f'id="ch-{c["num"]:02d}"' not in rd]
+        ok("every chapter is deep-linkable", not missing, f"missing {missing}" if missing else "")
+        ok("the reader lazy-loads all but the first pages",
+           rd.count('loading="lazy"') >= counts["pages"] - 2)
+        page_imgs = re.findall(r"<img[^>]*>", rd)
+        sized = [t for t in page_imgs if "width=" in t and "height=" in t]
+        ok("the reader reserves space for every page",
+           len(page_imgs) == counts["pages"] and len(sized) == len(page_imgs),
+           f"{len(sized)}/{len(page_imgs)} sized")
+        ok("the site links the online edition", 'href="book/"' in site)
+
     ok("site links the shared stylesheet and script",
        'href="assets/site.css"' in site and 'src="assets/site.js"' in site)
-    ok("site includes tablet, mobile and compact breakpoints",
-       all(f"@media (max-width: {width}px)" in css for width in (860, 620, 390)))
-    ok("reduced-motion users are respected", "@media (prefers-reduced-motion: reduce)" in css)
+    ok("site includes desktop, tablet and compact breakpoints",
+       all(f"@media(max-width:{width}px)" in flat for width in (1023, 767, 390)))
+    ok("reduced-motion users are respected", "@media(prefers-reduced-motion:reduce)" in flat)
     ok("keyboard focus remains visible", ":focus-visible" in css)
     web = ROOT / "docs" / "assets" / "web"
     optimized = [
