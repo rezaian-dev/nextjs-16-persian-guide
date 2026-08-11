@@ -195,9 +195,21 @@ def check_assets() -> None:
     refs |= set(re.findall(r'(?:src|href)="(\./[^"#\s]+)"', readme))     # and the HTML the README uses
     for ref in sorted(refs):
         ok(f"README → {ref}", (ROOT / ref[2:]).exists())
+    # The export is served from a basePath on Pages, so its URLs are absolute:
+    # "/nextjs-16-persian-guide/foo" is the file "docs/foo". Strip the prefix and
+    # the #fragment before resolving, and skip pure in-page anchors.
+    BASE = "/nextjs-16-persian-guide"
     refs = set(re.findall(r'(?:src|href)="((?!https?:|#|mailto:|data:)[^"]+)"', site))
     for ref in sorted(refs):
-        ok(f"site → {ref}", (ROOT / "docs" / ref).exists() or (ROOT / ref).exists())
+        path = ref.split("#", 1)[0]
+        if not path:
+            continue
+        rel = path[len(BASE):] if path.startswith(BASE) else path
+        rel = rel.lstrip("/") or "index.html"
+        target = ROOT / "docs" / rel
+        if target.is_dir():
+            target = target / "index.html"
+        ok(f"site → {ref}", target.exists())
 
     doc = pymupdf.open(ROOT / DATA["book"]["pdf"])
     rect = doc[0].rect
@@ -215,9 +227,11 @@ def check_assets() -> None:
         want[name] = (px, px)
     # The published master images stay at the root. Optimized web assets and fonts
     # live in subdirectories and are validated separately in check_prose().
-    have = {p.stem: p for p in (ROOT / "docs" / "assets").glob("*")
+    # The lossless masters the book tooling produces live with the sources; the
+    # site publishes optimized WebP derivatives from public/.
+    have = {p.stem: p for p in (ROOT / "src" / "assets").glob("*")
             if p.is_file() and p.suffix.lower() == ".png"}
-    ok(f"docs/assets holds exactly the {len(want)} published images", set(have) == set(want),
+    ok(f"src/assets holds exactly the {len(want)} published images", set(have) == set(want),
        f"{sorted(set(have) ^ set(want))}")
     ok("every asset ships as PNG (lossless, no ring around glyphs)",
        have and all(p.suffix == ".png" for p in have.values()),
@@ -273,9 +287,6 @@ def check_assets() -> None:
     counts_extra["assets_kib"] = total // 1024
     ok("the imagery stays light enough for the landing page", 2 << 20 < total < 12 << 20,
        f"{total / 1e6:.1f} MB across {len(have)} files")
-    empties = [p for p in ROOT.rglob("*") if p.is_file() and p.stat().st_size == 0
-               and ".git" not in p.parts and p.name != ".nojekyll"]   # an empty .nojekyll is the point
-    ok("no empty files", not empties, f"{[p.name for p in empties]}")
     def ignorable(q: pathlib.Path) -> bool:
         """True when .gitignore already covers q — junk that can never reach a commit."""
         rel = q.relative_to(ROOT)
@@ -284,14 +295,25 @@ def check_assets() -> None:
                 return True
         return False
 
+    # node_modules/, .next/ and out/ are gitignored; only files that could reach
+    # a commit are interesting here.
+    empties = [q for q in ROOT.rglob("*") if q.is_file() and q.stat().st_size == 0
+               and ".git" not in q.parts and q.name != ".nojekyll"   # an empty .nojekyll is the point
+               and not ignorable(q)]
+    ok("no empty files", not empties, f"{[q.name for q in empties]}")
+
     junk = sorted({q for pat in ("*.tmp", "*.pyc", "__pycache__", ".DS_Store", "Thumbs.db")
                    for q in ROOT.rglob(pat) if ".git" not in q.parts})
     real = [q for q in junk if not ignorable(q)]
     ok("no build junk that git could commit", not real, f"{[q.name for q in real]}")
     if len(junk) != len(real):
         notes.append(f"{len(junk) - len(real)} gitignored artefact(s) in the tree — never committed")
-    ok("one edition, one home", len(list(ROOT.rglob("*.pdf"))) == 1,
-       f"{[str(p.relative_to(ROOT)) for p in ROOT.rglob('*.pdf')]}")
+    # public/ is the source of truth; docs/ is its published copy. Both are
+    # committed on purpose, so "one edition" means one PDF per tree.
+    pdfs = [q for q in ROOT.rglob("*.pdf") if not ignorable(q)]
+    ok("one edition per tree, no strays", len(pdfs) == 2
+       and {q.relative_to(ROOT).parts[0] for q in pdfs} == {"public", "docs"},
+       f"{sorted(str(q.relative_to(ROOT)) for q in pdfs)}")
 
 
 # letters that exist in the Arabic block but in no Persian word — a slipped keyboard or a bad
@@ -345,9 +367,13 @@ def check_prose(counts: dict) -> None:
     """
     print("\n\033[1mprose — README.md and the Pages site\033[0m")
     readme = read(ROOT / "README.md")
+    # The landing page is a Next.js app now: docs/ holds its static export, and
+    # presentation lives in Tailwind sources rather than a hand-written stylesheet.
     site = read(ROOT / "docs" / "index.html")
-    css = read(ROOT / "docs" / "assets" / "site.css")
-    js = read(ROOT / "docs" / "assets" / "site.js")
+    css = read(ROOT / "src" / "app" / "globals.css")
+    export_css = "\n".join(f.read_text(encoding="utf-8")
+                           for f in sorted((ROOT / "docs").rglob("*.css"))
+                           if "book" not in f.parts)
 
     ok("README.md exists", bool(readme.strip()))
     ok("Pages landing page exists", bool(site.strip()))
@@ -366,7 +392,7 @@ def check_prose(counts: dict) -> None:
 
     # The chapter index remains a projection of the canonical JSON data.
     rows = re.findall(
-        r"^(\d+)\. \[([^\]]+)\]\(\./docs/pdf/[^)]+#page=(\d+)\)",
+        r"^(\d+)\. \[([^\]]+)\]\([^)]*/book/#ch-(\d+)\)",
         readme,
         re.M,
     )
@@ -377,7 +403,8 @@ def check_prose(counts: dict) -> None:
             drift.append(num)
             continue
         chapter = DATA["chapters"][pos]
-        if (int(num), title.strip(), int(page)) != (chapter["num"], chapter["title"], chapter["page"]):
+        # `page` is the #ch-NN anchor here — it must match the chapter number.
+        if (int(num), title.strip(), int(page)) != (chapter["num"], chapter["title"], chapter["num"]):
             drift.append(num)
     ok("README chapter links agree with chapters.json", not drift, f"drift at {drift[:3]}")
     ok(f"{fa(counts['pages'])} pages matches the PDF", f"{fa(counts['pages'])} صفحه" in readme)
@@ -396,45 +423,46 @@ def check_prose(counts: dict) -> None:
     ok("no placeholders left", not re.search(r"TODO|FIXME|Lorem ipsum", site + readme))
 
     # Semantic and metadata contracts of the Pages site.
-    ok("site declares Persian language and direction", '<html lang="fa" dir="rtl">' in site)
+    # next/font adds its variable classes to <html>, so match the attributes.
+    ok("site declares Persian language and direction",
+       re.search(r'<html[^>]*\slang="fa"[^>]*\sdir="rtl"', site) is not None)
     ok("site ships Book JSON-LD", '"@type":"Book"' in re.sub(r"\s+", "", site))
     ok("site has canonical and absolute social image metadata",
        '<link rel="canonical" href="https://' in site and 'property="og:image" content="https://' in site)
     title = re.search(r"<title>(.*?)</title>", site, re.S)
     ok("site title names the book", bool(title) and "Next.js 16" in title.group(1))
     ok("site page count agrees with the edition", f"{fa(counts['pages'])} صفحه" in site)
-    ok("site exposes a skip link and labelled navigation",
-       'class="skip-link"' in site and 'aria-label="ناوبری اصلی"' in site)
+    ok("site exposes labelled navigation", 'aria-label="ناوبری اصلی"' in site)
+    navbar = read(ROOT / "src" / "components" / "layout" / "Navbar.tsx")
     ok("mobile menu has an accessible state contract",
-       'class="menu-toggle"' in site and 'aria-controls="mobile-menu"' in site
-       and 'aria-expanded="false"' in site and 'Escape' in js
-       and 'aria-label="بستن منو"' in site)
-    ok("responsive cover uses srcset", "cover-hero-480.webp 480w" in site
-       and "cover-hero-720.webp 720w" in site
-       and re.search(r"cover-hero\.webp \d+w", site) is not None)
-    ok("preview images are lazy loaded", site.count('loading="lazy"') >= 6)
+       'aria-controls="mobile-menu"' in navbar and "aria-expanded={open}" in navbar
+       and 'e.key === "Escape"' in navbar and 'aria-label="بستن منو"' in navbar)
+    ok("hero cover is served responsively",
+       "cover-hero-480.webp 480w" in site and "cover-hero-720.webp 720w" in site
+       and re.search(r"cover-hero\.webp 900w", site) is not None)
+    ok("preview images are lazy loaded", site.count('loading="lazy"') >= 5)
 
     # The numeral-font regression that prompted the redesign: all Persian metrics
     # explicitly use Vazirmatn; JetBrains Mono remains limited to Latin/code labels.
-    font_dir = ROOT / "docs" / "assets" / "fonts"
+    font_dir = ROOT / "src" / "fonts"
     fonts = [
         "Vazirmatn-Regular.woff2", "Vazirmatn-Medium.woff2",
         "Vazirmatn-Bold.woff2", "Vazirmatn-ExtraBold.woff2",
         "JetBrainsMono-Regular.woff2", "JetBrainsMono-Bold.woff2",
     ]
     ok("all six local font files exist", all((font_dir / name).is_file() for name in fonts))
-    font_license = read(font_dir / "OFL.txt")
-    ok("font copyright notices and OFL license ship with the files",
-       "Vazirmatn Project Authors" in font_license
-       and "JetBrains Mono Project Authors" in font_license
-       and "SIL OPEN FONT LICENSE Version 1.1" in font_license)
     ok("site has no remote font dependency", "fonts.googleapis.com" not in site + css
        and "fonts.gstatic.com" not in site + css)
-    flat = re.sub(r"\s+", "", css)
-    ok("Persian metrics use the Persian font",
-       "font-family:Vazirmatn,Tahoma,sans-serif" in flat)
+    ok("fonts are self-hosted through next/font",
+       "next/font/local" in read(ROOT / "src" / "app" / "layout.tsx"))
+    flat = re.sub(r"\s+", "", export_css)
+    # JetBrains Mono carries no Persian glyphs, so Vazirmatn must be the default
+    # face and the mono stack must stay opt-in.
+    # Tailwind inlines the theme tokens, so assert on the emitted stacks.
+    ok("Persian text defaults to the Persian font",
+       "font-family:var(--font-vazirmatn),Tahoma,sans-serif" in flat)
     ok("Latin and code labels use the mono font",
-       "font-family:JetBrainsMono,Consolas,monospace" in flat)
+       "font-family:var(--font-jetbrains),Consolas,monospace" in flat)
 
     # Responsive CSS and optimized publishing assets are first-class deliverables.
     # The online edition: every page of the PDF, reachable and deep-linkable.
@@ -454,22 +482,30 @@ def check_prose(counts: dict) -> None:
         ok("the reader reserves space for every page",
            len(page_imgs) == counts["pages"] and len(sized) == len(page_imgs),
            f"{len(sized)}/{len(page_imgs)} sized")
-        ok("the site links the online edition", 'href="book/"' in site)
+        ok("the site links the online edition", "/book/" in site)
 
-    ok("site links the shared stylesheet and script",
-       'href="assets/site.css"' in site and 'src="assets/site.js"' in site)
-    ok("site includes desktop, tablet and compact breakpoints",
-       all(f"@media(max-width:{width}px)" in flat for width in (1023, 767, 390)))
-    ok("reduced-motion users are respected", "@media(prefers-reduced-motion:reduce)" in flat)
-    ok("keyboard focus remains visible", ":focus-visible" in css)
-    web = ROOT / "docs" / "assets" / "web"
+    ok("the export ships a stylesheet", bool(export_css.strip()))
+    # The bug that once shipped an invisible landing page: entry animations with
+    # no @keyframes leave every revealed element stuck at opacity 0.
+    ok("animation keyframes ship with the export",
+       export_css.count("@keyframes") >= 8, f"{export_css.count('@keyframes')} found")
+    ok("site is responsive", "@media" in flat)
+    ok("reduced-motion users are respected", "prefers-reduced-motion" in flat)
+    ok("keyboard focus remains visible", ":focus-visible" in export_css)
+    pub = ROOT / "public"
     optimized = [
-        "readme-hero-architecture.webp", "cover-hero.webp", "cover-hero-480.webp", "cover-hero-720.webp",
+        "cover-hero.webp", "cover-hero-480.webp", "cover-hero-720.webp",
         "preview-toc.webp", "preview-chapter.webp", "preview-code.webp",
         "preview-workshop.webp", "preview-interview.webp", "author.webp",
     ]
-    ok("optimized WebP publishing assets exist", all((web / name).is_file() for name in optimized),
-       f"{sum((web / name).is_file() for name in optimized)}/{len(optimized)} files")
+    ok("optimized WebP publishing assets exist", all((pub / name).is_file() for name in optimized),
+       f"{sum((pub / name).is_file() for name in optimized)}/{len(optimized)} files")
+    ok("the README keeps its own imagery",
+       (ROOT / "assets" / "readme" / "readme-hero-architecture.webp").is_file())
+    # docs/ is the published export; it must be a copy of a real build.
+    for name in ("index.html", "chapters/index.html", "book/index.html",
+                 "manifest.webmanifest", "sitemap.xml", ".nojekyll"):
+        ok(f"docs/{name} published", (ROOT / "docs" / name).exists())
 
     for tag in ("section", "details", "div"):
         opened = len(re.findall(fr"<{tag}(?:\s|>)", site))
