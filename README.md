@@ -1,7 +1,7 @@
 <a id="top"></a>
 
 <p align="center">
-  <img src="./docs/assets/web/readme-hero-architecture.webp" alt="مرجع فارسی Next.js 16" width="880">
+  <img src="./assets/readme/readme-hero-architecture.webp" alt="مرجع فارسی Next.js 16" width="880">
 </p>
 
 <p align="center" dir="rtl">
@@ -94,61 +94,61 @@
 <details>
 <summary><strong>بخش اول — بنیادها و اولین اپ</strong> · فصل‌های ۱ تا ۱۶</summary>
 
-1. [معرفی Next.js 16 و تازه‌های نسخه](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=5) — صفحهٔ ۵
-2. [شروع به کار و ساختار پروژه](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=7) — صفحهٔ ۷
-3. [نقشه راه یادگیری](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=9) — صفحهٔ ۹
-4. [روتینگ فایل‌محور (App Router)](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=11) — صفحهٔ ۱۱
-5. [Layout، فایل‌های ویژه و Metadata](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=19) — صفحهٔ ۱۹
-6. [پیوند و ناوبری](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=23) — صفحهٔ ۲۳
-7. [Server Components و Client Components](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=29) — صفحهٔ ۲۹
-8. [واکشی داده و Streaming](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=36) — صفحهٔ ۳۶
-9. [کشینگ مدرن با Cache Components](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=45) — صفحهٔ ۴۵
-10. [Server Actions و تغییر داده](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=51) — صفحهٔ ۵۱
-11. [Route Handlers (مبانی API)](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=56) — صفحهٔ ۵۶
-12. [Middleware؛ جانشین proxy.ts](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=60) — صفحهٔ ۶۰
-13. [استایل‌دهی با Tailwind v4](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=62) — صفحهٔ ۶۲
-14. [بهینه‌سازی: تصویر، فونت، لینک و سئو](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=64) — صفحهٔ ۶۴
-15. [محیط، TypeScript و استقرار](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=66) — صفحهٔ ۶۶
-16. [پروژه عملی: مینی‌بالگ کامل](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=70) — صفحهٔ ۷۰
+1. [معرفی Next.js 16 و تازه‌های نسخه](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-01) — صفحهٔ ۵
+2. [شروع به کار و ساختار پروژه](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-02) — صفحهٔ ۷
+3. [نقشه راه یادگیری](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-03) — صفحهٔ ۹
+4. [روتینگ فایل‌محور (App Router)](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-04) — صفحهٔ ۱۱
+5. [Layout، فایل‌های ویژه و Metadata](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-05) — صفحهٔ ۱۹
+6. [پیوند و ناوبری](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-06) — صفحهٔ ۲۳
+7. [Server Components و Client Components](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-07) — صفحهٔ ۲۹
+8. [واکشی داده و Streaming](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-08) — صفحهٔ ۳۶
+9. [کشینگ مدرن با Cache Components](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-09) — صفحهٔ ۴۵
+10. [Server Actions و تغییر داده](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-10) — صفحهٔ ۵۱
+11. [Route Handlers (مبانی API)](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-11) — صفحهٔ ۵۶
+12. [Middleware؛ جانشین proxy.ts](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-12) — صفحهٔ ۶۰
+13. [استایل‌دهی با Tailwind v4](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-13) — صفحهٔ ۶۲
+14. [بهینه‌سازی: تصویر، فونت، لینک و سئو](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-14) — صفحهٔ ۶۴
+15. [محیط، TypeScript و استقرار](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-15) — صفحهٔ ۶۶
+16. [پروژه عملی: مینی‌بالگ کامل](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-16) — صفحهٔ ۷۰
 
 </details>
 
 <details>
 <summary><strong>بخش دوم — معماری و Production</strong> · فصل‌های ۱۷ تا ۳۲</summary>
 
-17. [معماری پروژه، ساختار پوشه و Clean Code](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=74) — صفحهٔ ۷۴
-18. [استراتژی‌های رندر: SSG، ISR، SSR و PPR](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=78) — صفحهٔ ۷۸
-19. [API‌نویسی کامل با Route Handlers](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=84) — صفحهٔ ۸۴
-20. [خطاهای Hydration — مرجع کامل](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=94) — صفحهٔ ۹۴
-21. [احراز هویت و کنترل دسترسی](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=102) — صفحهٔ ۱۰۲
-22. [امنیت اپلیکیشن — فصل کامل](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=106) — صفحهٔ ۱۰۶
-23. [فرم‌ها و اعتبارسنجی پیشرفته](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=112) — صفحهٔ ۱۱۲
-24. [مدیریت state و داده در کلاینت](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=117) — صفحهٔ ۱۱۷
-25. [تسلط بر کشینگ: لایه‌ها و باطل‌سازی](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=121) — صفحهٔ ۱۲۱
-26. [کارایی و Core Web Vitals](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=125) — صفحهٔ ۱۲۵
-27. [Metadata و سئو — کامل](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=128) — صفحهٔ ۱۲۸
-28. [TypeScript پیشرفته و امنیت تایپ](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=132) — صفحهٔ ۱۳۲
-29. [مدیریت خطا — کامل](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=135) — صفحهٔ ۱۳۵
-30. [تست‌نویسی](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=139) — صفحهٔ ۱۳۹
-31. [استقرار حرفه‌ای و Self-Hosting](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=142) — صفحهٔ ۱۴۲
-32. [مهاجرت و ارتقا به نسخه ۱۶](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=146) — صفحهٔ ۱۴۶
+17. [معماری پروژه، ساختار پوشه و Clean Code](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-17) — صفحهٔ ۷۴
+18. [استراتژی‌های رندر: SSG، ISR، SSR و PPR](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-18) — صفحهٔ ۷۸
+19. [API‌نویسی کامل با Route Handlers](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-19) — صفحهٔ ۸۴
+20. [خطاهای Hydration — مرجع کامل](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-20) — صفحهٔ ۹۴
+21. [احراز هویت و کنترل دسترسی](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-21) — صفحهٔ ۱۰۲
+22. [امنیت اپلیکیشن — فصل کامل](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-22) — صفحهٔ ۱۰۶
+23. [فرم‌ها و اعتبارسنجی پیشرفته](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-23) — صفحهٔ ۱۱۲
+24. [مدیریت state و داده در کلاینت](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-24) — صفحهٔ ۱۱۷
+25. [تسلط بر کشینگ: لایه‌ها و باطل‌سازی](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-25) — صفحهٔ ۱۲۱
+26. [کارایی و Core Web Vitals](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-26) — صفحهٔ ۱۲۵
+27. [Metadata و سئو — کامل](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-27) — صفحهٔ ۱۲۸
+28. [TypeScript پیشرفته و امنیت تایپ](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-28) — صفحهٔ ۱۳۲
+29. [مدیریت خطا — کامل](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-29) — صفحهٔ ۱۳۵
+30. [تست‌نویسی](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-30) — صفحهٔ ۱۳۹
+31. [استقرار حرفه‌ای و Self-Hosting](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-31) — صفحهٔ ۱۴۲
+32. [مهاجرت و ارتقا به نسخه ۱۶](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-32) — صفحهٔ ۱۴۶
 
 </details>
 
 <details>
 <summary><strong>بخش سوم — کارگاه و تثبیت</strong> · فصل‌های ۳۳ تا ۳۵</summary>
 
-33. [نکات و ترفندهای طلایی](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=149) — صفحهٔ ۱۴۹
-34. [کارگاه مینی‌پروژه‌ها](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=155) — صفحهٔ ۱۵۵
-35. [بهترین شیوه‌ها، اشتباهات رایج و منابع](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=172) — صفحهٔ ۱۷۲
+33. [نکات و ترفندهای طلایی](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-33) — صفحهٔ ۱۴۹
+34. [کارگاه مینی‌پروژه‌ها](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-34) — صفحهٔ ۱۵۵
+35. [بهترین شیوه‌ها، اشتباهات رایج و منابع](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-35) — صفحهٔ ۱۷۲
 
 </details>
 
 <details>
 <summary><strong>بخش چهارم — مرجع و آمادگی شغلی</strong> · فصل‌های ۳۶ تا ۳۷</summary>
 
-36. [پرسش‌های مصاحبه (Junior تا Senior)](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=174) — صفحهٔ ۱۷۴
-37. [واژه‌نامه فارسی–انگلیسی](./docs/pdf/Nextjs16-Persian-Guide.pdf#page=176) — صفحهٔ ۱۷۶
+36. [پرسش‌های مصاحبه (Junior تا Senior)](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-36) — صفحهٔ ۱۷۴
+37. [واژه‌نامه فارسی–انگلیسی](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-37) — صفحهٔ ۱۷۶
 
 </details>
 
@@ -157,10 +157,10 @@
 ## پیش‌نمایش
 
 <p align="center">
-  <a href="./docs/assets/page-toc.png"><img src="./docs/assets/web/preview-toc.webp" alt="فهرست مطالب" width="180"></a>
-  <a href="./docs/assets/page-chapter.png"><img src="./docs/assets/web/preview-chapter.webp" alt="ساختار فصل" width="180"></a>
-  <a href="./docs/assets/page-code.png"><img src="./docs/assets/web/preview-code.webp" alt="نمونهٔ کد" width="180"></a>
-  <a href="./docs/assets/page-workshop.png"><img src="./docs/assets/web/preview-workshop.webp" alt="کارگاه پروژه" width="180"></a>
+  <a href="./assets/readme/page-toc.png"><img src="./assets/readme/preview-toc.webp" alt="فهرست مطالب" width="180"></a>
+  <a href="./assets/readme/page-chapter.png"><img src="./assets/readme/preview-chapter.webp" alt="ساختار فصل" width="180"></a>
+  <a href="./assets/readme/page-code.png"><img src="./assets/readme/preview-code.webp" alt="نمونهٔ کد" width="180"></a>
+  <a href="./assets/readme/page-workshop.png"><img src="./assets/readme/preview-workshop.webp" alt="کارگاه پروژه" width="180"></a>
 </p>
 
 <a id="editions"></a>
@@ -177,32 +177,46 @@
 
 ### EPUB — [نسخهٔ کتاب‌خوان](./docs/pdf/Nextjs16-Persian-Guide.epub)
 
-**راست‌به‌چپ · مناسب موبایل** — صفحه‌های کتاب، فصل‌بندی‌شده برای موبایل، تبلت و نرم‌افزارهای مطالعه EPUB.
+**۱۷۸ صفحه · مناسب کتاب‌خوان** — همان صفحه‌های کتاب، فصل‌بندی‌شده برای موبایل، تبلت و نرم‌افزارهای مطالعه EPUB. صفحه‌ها تصویری‌اند، نه متن بازچینش‌پذیر.
 
 ### GITHUB — [سورس ابزارها](https://github.com/rezaian-dev/nextjs-16-persian-guide)
 
-**Python · CC BY-NC-SA** — ابزارهای ساخت نسخه‌ها، دارایی‌ها و کنترل کیفیت در مخزن عمومی.
+**Next.js · Python · CC BY-NC-SA** — کد سایت، ابزارهای ساخت نسخه‌ها و کنترل کیفیت در مخزن عمومی.
 
 <a id="build"></a>
 
 ## ساخت از سورس
 
-پیش‌نیاز اصلی Python 3.10 یا جدیدتر است. ابزارهای این مخزن لایهٔ ناوبری، تصاویر پیش‌نمایش و کنترل کیفیت نسخهٔ نهایی را بازتولید می‌کنند.
+این مخزن دو بخش دارد: **سایت** (اپ Next.js) و **ابزارهای ساخت کتاب** (پایتون).
 
-### راه‌اندازی
+### سایت (Next.js 16)
 
 ```bash
 git clone https://github.com/rezaian-dev/nextjs-16-persian-guide.git
 cd nextjs-16-persian-guide
 
+npm install
+npm run dev          # http://localhost:3000
+npm run typecheck    # بررسی تایپ‌ها
+npm run build        # بیلد استاندارد (Vercel / Node)
+npm run build:pages  # خروجی استاتیک برای GitHub Pages در out/
+```
+
+خروجی `build:pages` با `basePath` برابر `/nextjs-16-persian-guide` ساخته می‌شود؛ همان محتوا در پوشهٔ `docs/` منتشر می‌شود.
+
+### کتاب (PDF، EPUB و نسخهٔ آنلاین)
+
+پیش‌نیاز: Python 3.10 یا جدیدتر.
+
+```bash
 python -m venv .venv
 source .venv/bin/activate       # macOS / Linux
 # .venv\Scripts\Activate.ps1   # Windows PowerShell
 
 python -m pip install -r src/requirements.txt
-python src/tools/build_edition.py
+python src/tools/build_edition.py   # PDF
 python src/tools/build_epub.py      # EPUB
-python src/tools/build_reader.py    # نسخهٔ آنلاین در docs/book/
+python src/tools/build_reader.py    # نسخهٔ آنلاین در public/book/
 python src/tools/make_previews.py
 python src/tools/make_shots.py
 python src/tools/make_card.py
@@ -213,14 +227,14 @@ python src/tools/qa.py
 
 ```text
 .
-├── docs/                       # سایت و نسخه نهایی کتاب
-│   ├── assets/
-│   ├── index.html
-│   └── pdf/
-└── src/
-    ├── edition/chapters.json   # منبع ساختاری فصل‌ها
-    ├── banner/
-    └── tools/                  # ساخت، پیش‌نمایش و QA
+├── src/
+│   ├── app/                    # صفحه‌ها و layout اپ Next.js
+│   ├── components/             # کامپوننت‌های رابط کاربری
+│   ├── lib/                    # داده فصل‌ها و پیوندها
+│   ├── edition/chapters.json   # منبع ساختاری فصل‌ها
+│   └── tools/                  # ساخت کتاب، پیش‌نمایش و QA
+├── public/                     # دارایی‌ها، PDF، EPUB و نسخهٔ آنلاین
+└── docs/                       # خروجی منتشرشده روی GitHub Pages
 ```
 
 <a id="collection"></a>
