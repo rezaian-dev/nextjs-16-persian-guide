@@ -5,9 +5,9 @@
 </p>
 
 <p align="center" dir="rtl">
-  <strong>از App Router و Server Components تا معماری و استقرار</strong>
+  <strong>🚀 از App Router و Server Components تا معماری و استقرار</strong>
   <br>
-  راهنمای فارسی و پروژه‌محور Next.js 16؛ با تمرکز بر رندر سرور، Cache Components، Server Actions، امنیت، تست و Production.
+  راهنمای فارسی و پروژه‌محور Next.js 16 — با تمرکز بر رندر سرور، Cache Components، Server Actions، امنیت، تست و Production.
 </p>
 
 <p align="center">
@@ -25,13 +25,13 @@
 </p>
 
 <p align="center" dir="rtl">
-  <a href="#about">درباره</a> ·
-  <a href="#path">مسیر یادگیری</a> ·
-  <a href="#chapters">فهرست فصل‌ها</a> ·
-  <a href="#preview">پیش‌نمایش</a> ·
-  <a href="#editions">نسخه‌ها</a> ·
-  <a href="#build">ساخت از سورس</a> ·
-  <a href="#collection">مجموعه</a>
+  <a href="#about">🧭 درباره</a> ·
+  <a href="#path">🗺️ مسیر یادگیری</a> ·
+  <a href="#chapters">📚 فهرست فصل‌ها</a> ·
+  <a href="#preview">🖼️ پیش‌نمایش</a> ·
+  <a href="#editions">📦 نسخه‌ها</a> ·
+  <a href="#build">🛠️ ساخت از سورس</a> ·
+  <a href="#collection">🧩 مجموعه</a>
 </p>
 
 ---
@@ -40,59 +40,59 @@
 
 <a id="about"></a>
 
-## درباره راهنما
+## 🧭 دربارهٔ راهنما
 
-مرجع فارسی Next.js 16 در ۳۷ فصل؛ از App Router و Server Components تا Cache Components، امنیت، تست، Core Web Vitals و استقرار. رایگان: نسخهٔ آنلاین، PDF و EPUB.
+مرجع فارسی **Next.js 16** در **۳۷ فصل**؛ از App Router و Server Components تا Cache Components، امنیت، تست، Core Web Vitals و استقرار. نسخهٔ آنلاین، PDF و EPUB — همه رایگان.
 
-این راهنما بر **مدل ذهنی، تحلیل رفتار و تصمیم‌گیری فنی** تمرکز دارد. هدف این نیست که مجموعه‌ای از APIها حفظ شود؛ هدف این است که بتوانید مسئله را بفهمید، راه‌حل را ارزیابی کنید و کدی بنویسید که در پروژهٔ واقعی قابل نگهداری باشد.
+اینجا قرار نیست فهرستی از APIها حفظ کنید. تمرکز راهنما بر **مدل ذهنی، رفتار فریم‌ورک و تصمیم‌گیری فنی** است: مسئله را درست بفهمید، راه‌حل‌ها را ارزیابی کنید و کدی بنویسید که در پروژهٔ واقعی دوام بیاورد.
 
-### ویژگی‌ها
+### ✨ ویژگی‌ها
 
-- **مدل ذهنی App Router:** مرز سرور و کلاینت، رندر، Streaming و Hydration با تمرکز بر چرایی تصمیم‌های فریم‌ورک.
-- **همگام با Next.js 16:** Cache Components، use cache، cacheLife، cacheTag، Turbopack، proxy.ts و React 19.2.
-- **کد TypeScript و پروژهٔ واقعی:** ۲۱۶ پنجرهٔ کد و ترمینال، یک مینی‌بالگ کامل و ۸ پروژهٔ کوچک برای تمرین مرحله‌ای.
-- **معماری و داده:** ساختار feature-based، DAL، Route Handlers، Server Actions، مدیریت state و اعتبارسنجی.
-- **Production از ابتدا:** احراز هویت، RBAC، امنیت، rate limit، تست، Core Web Vitals، Docker و Self-Hosting.
-- **مهاجرت و مرجع سریع:** مسیر ارتقا به نسخهٔ ۱۶، خطاهای رایج، پرسش‌های مصاحبه و واژه‌نامهٔ فارسی–انگلیسی.
+- 🧠 **مدل ذهنی App Router** — مرز سرور و کلاینت، رندر، Streaming و Hydration؛ با تمرکز بر «چرا»ی تصمیم‌های فریم‌ورک.
+- ⚡ **همگام با Next.js 16** — Cache Components، `use cache`، `cacheLife`، `cacheTag`، Turbopack، `proxy.ts` و React 19.2.
+- 💻 **کد TypeScript و پروژهٔ واقعی** — ۲۱۶ پنجرهٔ کد و ترمینال، یک مینی‌بالگ کامل و ۸ مینی‌پروژه برای تمرین مرحله‌ای.
+- 🏗️ **معماری و داده** — ساختار feature-based، DAL، Route Handlers، Server Actions، مدیریت state و اعتبارسنجی.
+- 🔐 **Production از روز اول** — احراز هویت، RBAC، امنیت، Rate Limit، تست، Core Web Vitals، Docker و Self-Hosting.
+- 🔄 **مهاجرت و مرجع سریع** — مسیر ارتقا به نسخهٔ ۱۶، خطاهای رایج، پرسش‌های مصاحبه و واژه‌نامهٔ فارسی–انگلیسی.
 
 <a id="path"></a>
 
-## مسیر یادگیری
+## 🗺️ مسیر یادگیری
 
-### ۱. بنیادها و اولین اپ
+### 🌱 مرحلهٔ ۱ — بنیادها و اولین اپ
 
-**فصل‌های ۱ تا ۱۶** — راه‌اندازی، App Router، Layout، RSC، داده، Streaming، کشینگ، Server Actions و پروژهٔ مینی‌بالگ.
+**فصل‌های ۱ تا ۱۶** — راه‌اندازی، App Router، Layout، RSC، واکشی داده، Streaming، کشینگ، Server Actions و پروژهٔ مینی‌بالگ.
 
-دستاورد: **ساخت مدل ذهنی و درک رفتار پایه**
+🎯 **دستاورد:** ساخت مدل ذهنی و درک رفتار پایه
 
-### ۲. معماری و Production
+### 🏗️ مرحلهٔ ۲ — معماری و Production
 
 **فصل‌های ۱۷ تا ۳۲** — رندر، API، Hydration، احراز هویت، امنیت، فرم، کشینگ پیشرفته، سئو، تست، استقرار و مهاجرت.
 
-دستاورد: **تسلط بر الگوها و قابلیت‌های مدرن**
+🎯 **دستاورد:** تسلط بر الگوها و قابلیت‌های مدرن
 
-### ۳. کارگاه و تثبیت
+### 🛠️ مرحلهٔ ۳ — کارگاه و تثبیت
 
 **فصل‌های ۳۳ تا ۳۵** — نکات طلایی، کارگاه ۸ مینی‌پروژه و مرور بهترین شیوه‌ها و اشتباهات رایج.
 
-دستاورد: **طراحی کد پایدار و قابل نگهداری**
+🎯 **دستاورد:** طراحی کد پایدار و قابل نگهداری
 
-### ۴. مرجع و آمادگی شغلی
+### 🎓 مرحلهٔ ۴ — مرجع و آمادگی شغلی
 
 **فصل‌های ۳۶ تا ۳۷** — پرسش‌های مصاحبه با پاسخ دقیق و واژه‌نامهٔ فارسی–انگلیسی برای مرور سریع.
 
-دستاورد: **تثبیت آموخته‌ها و آمادگی پروژه**
+🎯 **دستاورد:** تثبیت آموخته‌ها و آمادگی پروژه
 
-> برای مطالعهٔ پیوسته از بخش اول شروع کنید. اگر تجربهٔ عملی دارید، می‌توانید مستقیماً به مرحلهٔ متناسب با نیاز فعلی خود بروید.
+> 💡 برای مطالعهٔ پیوسته از مرحلهٔ اول شروع کنید. اگر تجربهٔ عملی دارید، مستقیم بروید سراغ مرحله‌ای که الان به آن نیاز دارید.
 
 <a id="chapters"></a>
 
-## فهرست فصل‌ها
+## 📚 فهرست فصل‌ها
 
-فهرست کامل در چهار بخش جمع شده است تا صفحه خلوت بماند. برای مشاهدهٔ فصل‌ها، هر بخش را باز کنید.
+فهرست کامل در چهار بخش جمع شده تا صفحه خلوت بماند؛ هر بخش را باز کنید. 🔍
 
 <details>
-<summary><strong>بخش اول — بنیادها و اولین اپ</strong> · فصل‌های ۱ تا ۱۶</summary>
+<summary><strong>🌱 بخش اول — بنیادها و اولین اپ</strong> · فصل‌های ۱ تا ۱۶</summary>
 
 1. [معرفی Next.js 16 و تازه‌های نسخه](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-01) — صفحهٔ ۵
 2. [شروع به کار و ساختار پروژه](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-02) — صفحهٔ ۷
@@ -114,7 +114,7 @@
 </details>
 
 <details>
-<summary><strong>بخش دوم — معماری و Production</strong> · فصل‌های ۱۷ تا ۳۲</summary>
+<summary><strong>🏗️ بخش دوم — معماری و Production</strong> · فصل‌های ۱۷ تا ۳۲</summary>
 
 17. [معماری پروژه، ساختار پوشه و Clean Code](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-17) — صفحهٔ ۷۴
 18. [استراتژی‌های رندر: SSG، ISR، SSR و PPR](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-18) — صفحهٔ ۷۸
@@ -136,7 +136,7 @@
 </details>
 
 <details>
-<summary><strong>بخش سوم — کارگاه و تثبیت</strong> · فصل‌های ۳۳ تا ۳۵</summary>
+<summary><strong>🛠️ بخش سوم — کارگاه و تثبیت</strong> · فصل‌های ۳۳ تا ۳۵</summary>
 
 33. [نکات و ترفندهای طلایی](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-33) — صفحهٔ ۱۴۹
 34. [کارگاه مینی‌پروژه‌ها](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-34) — صفحهٔ ۱۵۵
@@ -145,7 +145,7 @@
 </details>
 
 <details>
-<summary><strong>بخش چهارم — مرجع و آمادگی شغلی</strong> · فصل‌های ۳۶ تا ۳۷</summary>
+<summary><strong>🎓 بخش چهارم — مرجع و آمادگی شغلی</strong> · فصل‌های ۳۶ تا ۳۷</summary>
 
 36. [پرسش‌های مصاحبه (Junior تا Senior)](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-36) — صفحهٔ ۱۷۴
 37. [واژه‌نامه فارسی–انگلیسی](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-37) — صفحهٔ ۱۷۶
@@ -154,7 +154,7 @@
 
 <a id="preview"></a>
 
-## پیش‌نمایش
+## 🖼️ پیش‌نمایش
 
 <p align="center">
   <a href="./assets/readme/page-toc.png"><img src="./assets/readme/preview-toc.webp" alt="فهرست مطالب" width="180"></a>
@@ -165,31 +165,31 @@
 
 <a id="editions"></a>
 
-## نسخه‌های در دسترس
+## 📦 نسخه‌های در دسترس
 
-### ONLINE — [نسخهٔ آنلاین](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/)
+### 🌐 ONLINE — [نسخهٔ آنلاین](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/)
 
-**۱۷۸ صفحه · ۳۷ فصل** — خواندن کامل کتاب در مرورگر، بدون دانلود؛ با فهرست فصل‌ها و پیوند مستقیم به هر فصل (مثلاً [فصل ۲۳](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-23)).
+**۱۷۸ صفحه · ۳۷ فصل** — کل کتاب در مرورگر و بدون دانلود؛ با فهرست فصل‌ها و پیوند مستقیم به هر فصل (مثل [فصل ۲۳](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/#ch-23)).
 
-### PDF — [نسخهٔ اصلی](./docs/pdf/Nextjs16-Persian-Guide.pdf)
+### 📕 PDF — [نسخهٔ اصلی](./docs/pdf/Nextjs16-Persian-Guide.pdf)
 
-**۱۷۸ صفحه · A4** — نسخهٔ رنگی، قابل جست‌وجو و دارای فهرست داخلی برای مطالعه روی دسکتاپ و تبلت.
+**۱۷۸ صفحه · قطع A4** — رنگی، قابل جست‌وجو و دارای فهرست داخلی؛ مناسب دسکتاپ و تبلت.
 
-### EPUB — [نسخهٔ کتاب‌خوان](./docs/pdf/Nextjs16-Persian-Guide.epub)
+### 📗 EPUB — [نسخهٔ کتاب‌خوان](./docs/pdf/Nextjs16-Persian-Guide.epub)
 
-**۱۷۸ صفحه · مناسب کتاب‌خوان** — همان صفحه‌های کتاب، فصل‌بندی‌شده برای موبایل، تبلت و نرم‌افزارهای مطالعه EPUB. صفحه‌ها تصویری‌اند، نه متن بازچینش‌پذیر.
+**۱۷۸ صفحه** — همان صفحه‌های کتاب، فصل‌بندی‌شده برای موبایل، تبلت و اپ‌های مطالعهٔ EPUB. صفحه‌ها تصویری‌اند، نه متن بازچینش‌پذیر.
 
-### GITHUB — [سورس ابزارها](https://github.com/rezaian-dev/nextjs-16-persian-guide)
+### 🧰 GITHUB — [سورس و ابزارها](https://github.com/rezaian-dev/nextjs-16-persian-guide)
 
-**Next.js · Python · CC BY-NC-SA** — کد سایت، ابزارهای ساخت نسخه‌ها و کنترل کیفیت در مخزن عمومی.
+**Next.js · Python · CC BY-NC-SA** — کد سایت، ابزارهای ساخت نسخه‌ها و اسکریپت‌های کنترل کیفیت، همه در همین مخزن.
 
 <a id="build"></a>
 
-## ساخت از سورس
+## 🛠️ ساخت از سورس
 
 این مخزن دو بخش دارد: **سایت** (اپ Next.js) و **ابزارهای ساخت کتاب** (پایتون).
 
-### سایت (Next.js 16)
+### ⚡ سایت (Next.js 16)
 
 ```bash
 git clone https://github.com/rezaian-dev/nextjs-16-persian-guide.git
@@ -204,7 +204,7 @@ npm run build:pages  # خروجی استاتیک برای GitHub Pages در out/
 
 خروجی `build:pages` با `basePath` برابر `/nextjs-16-persian-guide` ساخته می‌شود؛ همان محتوا در پوشهٔ `docs/` منتشر می‌شود.
 
-### کتاب (PDF، EPUB و نسخهٔ آنلاین)
+### 🐍 کتاب (PDF، EPUB و نسخهٔ آنلاین)
 
 پیش‌نیاز: Python 3.10 یا جدیدتر.
 
@@ -223,7 +223,7 @@ python src/tools/make_card.py
 python src/tools/qa.py
 ```
 
-### ساختار اصلی
+### 🗂️ ساختار اصلی
 
 ```text
 .
@@ -239,34 +239,34 @@ python src/tools/qa.py
 
 <a id="collection"></a>
 
-## مجموعه راهنماهای فارسی
+## 🧩 مجموعه راهنماهای فارسی
 
-این چهار مرجع یک مسیر هماهنگ می‌سازند: نسخه‌بندی و همکاری، زبان JavaScript، رابط کاربری React، و فریم‌ورک Production با Next.js.
+چهار مرجع، یک مسیر هماهنگ: نسخه‌بندی و همکاری، زبان JavaScript، رابط کاربری React و فریم‌ورک Production با Next.js.
 
-- **[Git و GitHub ۲۰۲۶](https://github.com/rezaian-dev/git-github-persian-guide)** — نسخه‌بندی، VS Code و همکاری · [نسخه آنلاین](https://rezaian-dev.github.io/git-github-persian-guide/)
-- **[JavaScript ES2025](https://github.com/rezaian-dev/javascript-persian-guide)** — زبان و مدل ذهنی · [نسخه آنلاین](https://rezaian-dev.github.io/javascript-persian-guide/)
-- **[React 19.2](https://github.com/rezaian-dev/react-19-persian-guide)** — رابط کاربری، state و معماری کامپوننت · [نسخه آنلاین](https://rezaian-dev.github.io/react-19-persian-guide/)
-- **[Next.js 16](https://github.com/rezaian-dev/nextjs-16-persian-guide)** — فریم‌ورک، رندر سرور و استقرار · [نسخه آنلاین](https://rezaian-dev.github.io/nextjs-16-persian-guide/) — **راهنمای فعلی**
+- 🌱 **[Git و GitHub ۲۰۲۶](https://github.com/rezaian-dev/git-github-persian-guide)** — نسخه‌بندی، VS Code و همکاری · [نسخه آنلاین](https://rezaian-dev.github.io/git-github-persian-guide/)
+- 🟨 **[JavaScript ES2025](https://github.com/rezaian-dev/javascript-persian-guide)** — زبان و مدل ذهنی · [نسخه آنلاین](https://rezaian-dev.github.io/javascript-persian-guide/)
+- ⚛️ **[React 19.2](https://github.com/rezaian-dev/react-19-persian-guide)** — رابط کاربری، state و معماری کامپوننت · [نسخه آنلاین](https://rezaian-dev.github.io/react-19-persian-guide/)
+- ▲ **[Next.js 16](https://github.com/rezaian-dev/nextjs-16-persian-guide)** — فریم‌ورک، رندر سرور و استقرار · [نسخه آنلاین](https://rezaian-dev.github.io/nextjs-16-persian-guide/) — 📍 **همین راهنمایید**
 
-## مشارکت
+## 🤝 مشارکت
 
-برای گزارش خطا یا پیشنهاد اصلاح، یک [Issue](https://github.com/rezaian-dev/nextjs-16-persian-guide/issues) باز کنید. Pull Requestها بهتر است کوچک، متمرکز و همراه با توضیح روشن دربارهٔ دلیل تغییر باشند.
+برای گزارش خطا یا پیشنهاد اصلاح یک [Issue](https://github.com/rezaian-dev/nextjs-16-persian-guide/issues) باز کنید. Pull Requestها را کوچک و متمرکز نگه دارید و دلیل تغییر را شفاف توضیح دهید. 🙏
 
-- [گزارش یک مشکل](https://github.com/rezaian-dev/nextjs-16-persian-guide/issues)
-- [مشاهده مخزن](https://github.com/rezaian-dev/nextjs-16-persian-guide)
+- 🐛 [گزارش یک مشکل](https://github.com/rezaian-dev/nextjs-16-persian-guide/issues)
+- 👀 [مشاهده مخزن](https://github.com/rezaian-dev/nextjs-16-persian-guide)
 
-## نویسنده و مجوز
+## ✍️ نویسنده و مجوز
 
 **محمدرضا رضائیان** — [@rezaian-dev](https://github.com/rezaian-dev)
 
-این اثر با مجوز [Creative Commons BY-NC-SA 4.0](./LICENSE) منتشر شده است. استفاده و بازنشر غیرتجاری با ذکر منبع مجاز است و نسخهٔ اقتباسی باید با همین مجوز منتشر شود.
+این اثر با مجوز [Creative Commons BY-NC-SA 4.0](./LICENSE) منتشر شده است: استفاده و بازنشر غیرتجاری با ذکر منبع آزاد است و هر نسخهٔ اقتباسی باید با همین مجوز منتشر شود. ⚖️
 
 </div>
 
 ---
 
 <p align="center" dir="rtl">
-  اگر این راهنما برایتان مفید بود، با ثبت یک ⭐ از ادامهٔ توسعهٔ مجموعه حمایت کنید.
+  ⭐ اگر این راهنما برایتان مفید بود، با ثبت یک ستاره از ادامهٔ راه مجموعه حمایت کنید.
   <br>
-  <a href="#top">بازگشت به بالا</a>
+  <a href="#top">بازگشت به بالا ↑</a>
 </p>
