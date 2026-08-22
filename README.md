@@ -162,31 +162,29 @@ git clone https://github.com/rezaian-dev/nextjs-16-persian-guide.git
 cd nextjs-16-persian-guide && npm install && npm run dev
 ```
 
-#### 🛠️ بیلد کامل: سایت (Next.js) و کتاب (Python، PDF، EPUB)
+#### 🛠️ بیلد و ساختار پروژه (Next.js + TypeScript)
 
 
 ```bash
-# سایت — بیلد استاتیک برای GitHub Pages
-npm run build        # بیلد استاندارد (Vercel / Node)
-npm run build:pages  # خروجی استاتیک در out/ با basePath
+# توسعه
+npm install      # نصب وابستگی‌ها
+npm run dev      # سرور توسعه روی localhost:3000
 
-# کتاب — پیش‌نیاز Python 3.10+
-python -m venv .venv && source .venv/bin/activate
-python -m pip install -r src/requirements.txt
-python src/tools/build_edition.py   # PDF
-python src/tools/build_epub.py      # EPUB
-python src/tools/build_reader.py    # نسخهٔ آنلاین در public/book/
-python src/tools/qa.py              # کنترل کیفیت
+# بیلد
+npm run typecheck    # بررسی تایپ‌ها
+npm run build        # بیلد استاندارد (Vercel / Node)
+npm run build:pages  # خروجی استاتیک در out/ با basePath (برای GitHub Pages)
 ```
 
 ```text
-src/app/        صفحه‌ها و layout اپ Next.js
-src/components/ کامپوننت‌های رابط کاربری
-src/lib/        داده فصل‌ها و پیوندها
-src/edition/    منبع ساختاری فصل‌ها (chapters.json)
-src/tools/      ساخت کتاب، پیش‌نمایش و QA
-public/         دارایی‌ها، PDF، EPUB و نسخهٔ آنلاین
-docs/           خروجی منتشرشده روی GitHub Pages
+src/app/          صفحه‌ها و layout (خانه، فصل‌ها، نسخهٔ آنلاین، سوشال‌کارت)
+src/app/book/     روت نسخهٔ آنلاین کتاب + استایل ریدر
+src/components/   کامپوننت‌های رابط کاربری (بخش‌ها، ریدر، بنر)
+src/lib/          داده فصل‌ها، طرح کتاب و پیوندها
+src/fonts/        فونت‌های وزیرمتن و جت‌برینز (woff2)
+public/           دارایی‌ها، PDF، EPUB و صفحه‌های نسخهٔ آنلاین
+public/book/      تصویر صفحه‌های کتاب (۱۷۸ صفحه)
+docs/             خروجی منتشرشده روی GitHub Pages (ساختهٔ build:pages)
 ```
 
 
