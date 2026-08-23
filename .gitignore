@@ -3,8 +3,9 @@ node_modules/
 
 # Next.js build output
 .next/
-# raw static export; the published copy is committed under docs/
+# Generated static export
 out/
+docs/
 
 # TypeScript
 *.tsbuildinfo
