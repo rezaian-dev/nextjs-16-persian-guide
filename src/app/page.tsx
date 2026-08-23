@@ -1,7 +1,4 @@
-import Background from "@/components/layout/Background";
-import ScrollProgress from "@/components/layout/ScrollProgress";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import SiteShell from "@/components/layout/SiteShell";
 import Hero from "@/components/sections/Hero";
 import Stats from "@/components/sections/Stats";
 import Marquee from "@/components/sections/Marquee";
@@ -16,10 +13,7 @@ import Author from "@/components/sections/Author";
 
 export default function Home() {
   return (
-    <>
-      <Background />
-      <ScrollProgress />
-      <Navbar />
+    <SiteShell>
       <main>
         <Hero />
         <Stats />
@@ -33,7 +27,6 @@ export default function Home() {
         <Series />
         <Author />
       </main>
-      <Footer />
-    </>
+    </SiteShell>
   );
 }

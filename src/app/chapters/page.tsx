@@ -1,11 +1,8 @@
+import SiteShell from "@/components/layout/SiteShell";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, BookOpen, ExternalLink } from "lucide-react";
 
-import Background from "@/components/layout/Background";
-import ScrollProgress from "@/components/layout/ScrollProgress";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { PARTS, TOTAL_CHAPTERS } from "@/lib/chapters";
@@ -16,12 +13,9 @@ export const metadata: Metadata = {
   description: "فهرست کامل ۳۷ فصل مرجع فارسی Next.js 16 و React 19.2‏.",
 };
 
-export default function BookPage() {
+export default function ChaptersPage() {
   return (
-    <>
-      <Background />
-      <ScrollProgress />
-      <Navbar />
+    <SiteShell>
 
       <main className="container pb-24 pt-36">
         <header className="mx-auto mb-12 max-w-2xl text-center">
@@ -89,7 +83,6 @@ export default function BookPage() {
         </p>
       </main>
 
-      <Footer />
-    </>
+    </SiteShell>
   );
 }

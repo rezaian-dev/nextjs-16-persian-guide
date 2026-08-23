@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import MotionProvider from "@/components/providers/MotionProvider";
+import { asset } from "@/lib/links";
 import "./globals.css";
 
 const vazirmatn = localFont({
@@ -26,7 +27,13 @@ const jetbrains = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL("https://rezaian-dev.github.io"),
   alternates: { canonical: "https://rezaian-dev.github.io/nextjs-16-persian-guide/" },
-  icons: { icon: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/next-logo-64.png` },
+  icons: {
+    icon: [
+      { url: asset("/favicon.ico") },
+      { url: asset("/favicon.svg"), type: "image/svg+xml" },
+    ],
+    apple: { url: asset("/icon-180.png"), sizes: "180x180" },
+  },
   manifest: `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/manifest.webmanifest`,
   title: "مرجع جامع Next.js 16 | راهنمای فارسی از مقدماتی تا Production",
   description:

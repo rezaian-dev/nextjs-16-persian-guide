@@ -1,7 +1,7 @@
 <a id="top"></a>
 
 <p align="center">
-  <img src="./assets/readme/readme-hero.webp" alt="مرجع فارسی Next.js 16" width="880">
+  <img src="./public/social-card.png" alt="مرجع فارسی Next.js 16" width="880">
 </p>
 
 <p align="center" dir="rtl">
@@ -10,8 +10,8 @@
 
 <p align="center">
   <a href="https://rezaian-dev.github.io/nextjs-16-persian-guide/"><img src="https://img.shields.io/badge/READ_ONLINE-0EA5E9?style=for-the-badge&logo=githubpages&logoColor=white" alt="مطالعه آنلاین"></a>
-  <a href="./docs/pdf/Nextjs16-Persian-Guide.pdf"><img src="https://img.shields.io/badge/DOWNLOAD_PDF-DC2626?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" alt="دانلود PDF"></a>
-  <a href="./docs/pdf/Nextjs16-Persian-Guide.epub"><img src="https://img.shields.io/badge/DOWNLOAD_EPUB-7C3AED?style=for-the-badge&logo=applebooks&logoColor=white" alt="دانلود EPUB"></a>
+  <a href="./public/pdf/Nextjs16-Persian-Guide.pdf"><img src="https://img.shields.io/badge/DOWNLOAD_PDF-DC2626?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" alt="دانلود PDF"></a>
+  <a href="./public/pdf/Nextjs16-Persian-Guide.epub"><img src="https://img.shields.io/badge/DOWNLOAD_EPUB-7C3AED?style=for-the-badge&logo=applebooks&logoColor=white" alt="دانلود EPUB"></a>
 </p>
 
 <p align="center">
@@ -68,10 +68,10 @@ Next.js 16 دنیای خودش را دارد: **Cache Components**، رندر س
 ## 🖼️ نگاهی به داخل کتاب
 
 <p align="center">
-  <a href="./assets/readme/page-toc.png"><img src="./assets/readme/preview-toc.webp" alt="فهرست مطالب" width="180"></a>
-  <a href="./assets/readme/page-chapter.png"><img src="./assets/readme/preview-chapter.webp" alt="ساختار فصل" width="180"></a>
-  <a href="./assets/readme/page-code.png"><img src="./assets/readme/preview-code.webp" alt="نمونهٔ کد" width="180"></a>
-  <a href="./assets/readme/page-workshop.png"><img src="./assets/readme/preview-workshop.webp" alt="کارگاه پروژه" width="180"></a>
+  <a href="./public/page-toc.png"><img src="./public/preview-toc.webp" alt="فهرست مطالب" width="180"></a>
+  <a href="./public/page-chapter.png"><img src="./public/preview-chapter.webp" alt="ساختار فصل" width="180"></a>
+  <a href="./public/page-code.png"><img src="./public/preview-code.webp" alt="نمونهٔ کد" width="180"></a>
+  <a href="./public/page-workshop.png"><img src="./public/preview-workshop.webp" alt="کارگاه پروژه" width="180"></a>
 </p>
 
 ## 📦 در چه قالبی می‌خواهید؟
@@ -79,8 +79,8 @@ Next.js 16 دنیای خودش را دارد: **Cache Components**، رندر س
 <table dir="rtl" align="center">
 <tr><th align="center">قالب</th><th align="center">مناسب برای</th><th align="center">لینک</th></tr>
 <tr><td align="center">🌐 <strong>آنلاین</strong></td><td>مطالعهٔ فوری در مرورگر با پیوند مستقیم به هر فصل</td><td align="center"><a href="https://rezaian-dev.github.io/nextjs-16-persian-guide/book/"><strong>شروع مطالعه</strong></a></td></tr>
-<tr><td align="center">📕 <strong>PDF</strong></td><td>دانلود، جست‌وجو و چاپ — قطع A4 رنگی</td><td align="center"><a href="./docs/pdf/Nextjs16-Persian-Guide.pdf"><strong>دانلود</strong></a></td></tr>
-<tr><td align="center">📗 <strong>EPUB</strong></td><td>موبایل، تبلت و کتاب‌خوان</td><td align="center"><a href="./docs/pdf/Nextjs16-Persian-Guide.epub"><strong>دانلود</strong></a></td></tr>
+<tr><td align="center">📕 <strong>PDF</strong></td><td>دانلود، جست‌وجو و چاپ — قطع A4 رنگی</td><td align="center"><a href="./public/pdf/Nextjs16-Persian-Guide.pdf"><strong>دانلود</strong></a></td></tr>
+<tr><td align="center">📗 <strong>EPUB</strong></td><td>موبایل، تبلت و کتاب‌خوان</td><td align="center"><a href="./public/pdf/Nextjs16-Persian-Guide.epub"><strong>دانلود</strong></a></td></tr>
 <tr><td align="center">🧰 <strong>سورس</strong></td><td>کد سایت و ابزارهای ساخت کتاب</td><td align="center"><a href="https://github.com/rezaian-dev/nextjs-16-persian-guide"><strong>همین مخزن</strong></a></td></tr>
 </table>
 
@@ -167,7 +167,7 @@ cd nextjs-16-persian-guide && npm install && npm run dev
 
 ```bash
 # توسعه
-npm install      # نصب وابستگی‌ها
+npm ci           # نصب وابستگی‌ها
 npm run dev      # سرور توسعه روی localhost:3000
 
 # بیلد
@@ -184,9 +184,12 @@ src/lib/          داده فصل‌ها، طرح کتاب و پیوندها
 src/fonts/        فونت‌های وزیرمتن و جت‌برینز (woff2)
 public/           دارایی‌ها، PDF، EPUB و صفحه‌های نسخهٔ آنلاین
 public/book/      تصویر صفحه‌های کتاب (۱۷۸ صفحه)
-docs/             خروجی منتشرشده روی GitHub Pages (ساختهٔ build:pages)
 ```
 
+
+خروجی‌های `.next/` و `out/` تولیدی‌اند و در مخزن نگهداری نمی‌شوند. پوشهٔ `docs/` حذف شده است؛ برای GitHub Pages باید خروجی `out/` را با GitHub Actions منتشر کنید، نه از پوشهٔ docs روی شاخه. برای Node/Vercel از `npm run build` و `npm start` استفاده کنید.
+
+نسخهٔ آنلاین کتاب همچنان تصویرمحور است؛ PDF، EPUB و ۱۷۸ تصویر کتاب دارایی‌های لازم اپلیکیشن‌اند. صفحه‌های سایت کامپوننت‌های React هستند و HTML مستقل نگهداری نمی‌شود.
 
 ## 🧩 مجموعهٔ کامل راهنماهای فارسی
 
