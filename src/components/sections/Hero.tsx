@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import { m, useMotionValue, useSpring, useTransform } from "motion/react";
 import { useRef } from "react";
 import { BookOpen, Download, Check, Sparkles } from "lucide-react";
@@ -60,9 +62,9 @@ export default function Hero() {
           <m.div variants={item} className="mt-8 flex flex-wrap gap-3">
             <Magnetic>
               <Button asChild size="lg">
-                <a href={BOOK_URL}>
+                <Link href={BOOK_URL}>
                   <BookOpen /> مطالعه آنلاین
-                </a>
+                </Link>
               </Button>
             </Magnetic>
             <Magnetic>

@@ -21,7 +21,8 @@ export function asset(path: string): string {
 export const SITE_URL = "https://rezaian-dev.github.io/nextjs-16-persian-guide";
 
 /** The online edition — the `/book` App Router route over `public/book/pages/`. */
-export const BOOK_URL = asset("/book/");
+// Route URLs stay unprefixed: next/link adds basePath on GitHub Pages.
+export const BOOK_URL = "/book/";
 
 /** Deep-link to a single chapter inside the online edition. */
 export function chapterUrl(n: number): string {

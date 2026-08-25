@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { BOOK_URL, REPO_URL, ISSUES_URL } from "@/lib/links";
 
 export default function Footer() {
@@ -17,7 +18,7 @@ export default function Footer() {
             <a href="#top" className="text-sub transition-colors hover:text-primary-soft">بازگشت به بالا ↑</a>
             <a href={REPO_URL} target="_blank" rel="noopener" className="text-sub transition-colors hover:text-primary-soft">مخزن</a>
             <a href={ISSUES_URL} target="_blank" rel="noopener" className="text-sub transition-colors hover:text-primary-soft">گزارش خطا</a>
-            <a href={BOOK_URL} target="_blank" rel="noopener" className="text-sub transition-colors hover:text-primary-soft">نسخهٔ آنلاین کتاب</a>
+            <Link href={BOOK_URL} className="text-sub transition-colors hover:text-primary-soft">نسخهٔ آنلاین کتاب</Link>
           </nav>
         </div>
       </div>
