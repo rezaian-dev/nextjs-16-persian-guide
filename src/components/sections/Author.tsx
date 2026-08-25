@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import Image from "next/image";
 import { BookOpen, MessageSquare } from "lucide-react";
 
@@ -50,9 +52,9 @@ export default function Author() {
                 </Magnetic>
                 <Magnetic>
                   <Button asChild size="sm">
-                    <a href={BOOK_URL} target="_blank" rel="noopener">
+                    <Link href={BOOK_URL}>
                       <BookOpen /> مطالعه آنلاین
-                    </a>
+                    </Link>
                   </Button>
                 </Magnetic>
               </div>
