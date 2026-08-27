@@ -9,7 +9,7 @@ export default function NextIcon(props: SVGProps<SVGSVGElement>) {
     <svg viewBox="0 0 180 180" fill="none" aria-hidden="true" {...props}>
       <mask
         id="next-mark"
-        style={{ maskType: "alpha" }}
+        className="[mask-type:alpha]"
         maskUnits="userSpaceOnUse"
         x="0"
         y="0"

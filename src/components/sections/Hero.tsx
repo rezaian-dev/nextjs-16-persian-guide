@@ -85,8 +85,7 @@ export default function Hero() {
 
         <m.div
           ref={stageRef}
-          className="relative mx-auto w-full max-w-[360px]"
-          style={{ perspective: 1400 }}
+          className="relative mx-auto w-full max-w-[360px] perspective-[1400px]"
           initial={{ opacity: 0, scale: 0.86, y: 40 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.25, ease: "easeOut" }}
@@ -106,7 +105,7 @@ export default function Hero() {
             aria-hidden="true"
           />
 
-          <m.div style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}>
+          <m.div className="transform-3d" style={{ rotateX, rotateY }}>
             <m.div className="animate-float rounded-[22px] border border-input shadow-[0_50px_130px_-30px_rgb(6_10_24_/_0.7),0_0_90px_-30px_rgb(56_189_248_/_0.4)] motion-reduce:animate-none">
               {/* Three pre-rendered widths ship in public/. next/image can't
                   optimize on Pages (`images.unoptimized`), so drive the srcset

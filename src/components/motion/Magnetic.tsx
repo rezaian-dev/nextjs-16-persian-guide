@@ -18,8 +18,8 @@ export default function Magnetic({
   return (
     <m.div
       ref={ref}
-      className={className}
-      style={{ x, y, display: "inline-block" }}
+      className={`inline-block ${className ?? ""}`}
+      style={{ x, y }}
       onMouseMove={(e) => {
         const r = ref.current?.getBoundingClientRect();
         if (!r) return;

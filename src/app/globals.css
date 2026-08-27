@@ -136,24 +136,24 @@
   }
 
   html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 96px;
+    @apply scroll-smooth;
+    @apply [scroll-padding-top:96px];
   }
 
   body {
     @apply bg-background font-sans text-foreground antialiased;
-    overflow-x: clip;
-    text-rendering: optimizeLegibility;
+    @apply overflow-x-clip;
+    @apply [text-rendering:optimizeLegibility];
   }
 
   ::selection {
     @apply bg-primary text-primary-foreground;
   }
 
-  ::-webkit-scrollbar { width: 10px; }
-  ::-webkit-scrollbar-track { background: var(--background); }
-  ::-webkit-scrollbar-thumb { background: #39415f; border-radius: 8px; }
-  ::-webkit-scrollbar-thumb:hover { background: #4b5478; }
+  ::-webkit-scrollbar { @apply [width:10px]; }
+  ::-webkit-scrollbar-track { @apply [background:var(--background)]; }
+  ::-webkit-scrollbar-thumb { @apply [background:#39415f]; @apply [border-radius:8px]; }
+  ::-webkit-scrollbar-thumb:hover { @apply [background:#4b5478]; }
 }
 
 /* ============================================================
@@ -166,14 +166,14 @@
 
   /* Latin / code runs inside RTL text */
   .ltr {
-    direction: ltr;
-    unicode-bidi: isolate;
+    @apply [direction:ltr];
+    @apply [unicode-bidi:isolate];
     @apply font-mono;
   }
 
   /* film-grain texture */
   .noise {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+    @apply [background-image:url("data:image/svg+xml,%3Csvg_xmlns='http://www.w3.org/2000/svg'_width='140'_height='140'%3E%3Cfilter_id='n'%3E%3CfeTurbulence_type='fractalNoise'_baseFrequency='0.85'_numOctaves='2'_stitchTiles='stitch'/%3E%3C/filter%3E%3Crect_width='140'_height='140'_filter='url(%23n)'/%3E%3C/svg%3E")];
   }
 
   /* glass panel */
@@ -188,18 +188,16 @@
 
   /* faint blueprint grid */
   .bg-grid {
-    background-image:
-      linear-gradient(rgb(255 255 255 / 0.055) 1px, transparent 1px),
-      linear-gradient(90deg, rgb(255 255 255 / 0.055) 1px, transparent 1px);
-    background-size: 56px 56px;
-    -webkit-mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, #000 30%, transparent 75%);
-    mask-image: radial-gradient(ellipse 90% 60% at 50% 0%, #000 30%, transparent 75%);
+    @apply [background-image:linear-gradient(rgb(255_255_255_/_0.055)_1px,_transparent_1px),_linear-gradient(90deg,_rgb(255_255_255_/_0.055)_1px,_transparent_1px)];
+    @apply [background-size:56px_56px];
+    @apply [-webkit-mask-image:radial-gradient(ellipse_90%_60%_at_50%_0%,_#000_30%,_transparent_75%)];
+    @apply [mask-image:radial-gradient(ellipse_90%_60%_at_50%_0%,_#000_30%,_transparent_75%)];
   }
 
   /* marquee edge fade */
   .marquee-mask {
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-    mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+    @apply [-webkit-mask-image:linear-gradient(90deg,_transparent,_#000_12%,_#000_88%,_transparent)];
+    @apply [mask-image:linear-gradient(90deg,_transparent,_#000_12%,_#000_88%,_transparent)];
   }
 
   /* tilt-card glare layer
@@ -208,7 +206,7 @@
      and leave visible square corners while tilting — pin the radius here. */
   .tilt-glare {
     @apply pointer-events-none absolute inset-0 z-10;
-    border-radius: var(--radius);
+    @apply [border-radius:var(--radius)];
   }
   .tilt-glare + * { @apply relative; }
 }
@@ -221,30 +219,40 @@
   @apply absolute rounded-full blur-[90px] will-change-transform;
 }
 .aurora .a {
-  width: 46vw; height: 46vw; top: -14vw; inset-inline-start: -8vw;
-  background: radial-gradient(circle, rgb(56 189 248 / 0.26), transparent 65%);
-  animation: var(--animate-drift-a);
+  @apply [width:46vw]; @apply [height:46vw]; @apply [top:-14vw]; @apply [inset-inline-start:-8vw];
+  @apply [background:radial-gradient(circle,_rgb(56_189_248_/_0.26),_transparent_65%)];
+  @apply [animation:var(--animate-drift-a)];
 }
 .aurora .b {
-  width: 40vw; height: 40vw; top: 4vw; inset-inline-end: -10vw;
-  background: radial-gradient(circle, rgb(129 140 248 / 0.2), transparent 65%);
-  animation: var(--animate-drift-b);
+  @apply [width:40vw]; @apply [height:40vw]; @apply [top:4vw]; @apply [inset-inline-end:-10vw];
+  @apply [background:radial-gradient(circle,_rgb(129_140_248_/_0.2),_transparent_65%)];
+  @apply [animation:var(--animate-drift-b)];
 }
 .aurora .c {
-  width: 34vw; height: 34vw; bottom: -12vw; inset-inline-start: 28vw;
-  background: radial-gradient(circle, rgb(182 161 251 / 0.18), transparent 65%);
-  animation: var(--animate-drift-c);
+  @apply [width:34vw]; @apply [height:34vw]; @apply [bottom:-12vw]; @apply [inset-inline-start:28vw];
+  @apply [background:radial-gradient(circle,_rgb(182_161_251_/_0.18),_transparent_65%)];
+  @apply [animation:var(--animate-drift-c)];
 }
 
 /* respect reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
+  html { @apply scroll-auto; }
   .aurora > div,
   .animate-float,
   .animate-marquee,
   .animate-wheel,
   .animate-blink,
   .animate-pulse-dot {
-    animation: none !important;
+    @apply [animation:none]!;
   }
+}
+
+@theme {
+ --animate-reader-pop: pop .16s ease;
+ --animate-reader-fade: fade .2s ease;
+ --animate-reader-slide: slide .32s cubic-bezier(.22,1,.36,1);
+@keyframes pop{from{opacity:0;transform:translateY(-6px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes slide{from{transform:translateX(-100%);opacity:.4}to{transform:none;opacity:1}}
+
 }

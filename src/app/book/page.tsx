@@ -4,7 +4,7 @@ import ReaderHeader from "@/components/book/ReaderHeader";
 import PageList from "@/components/book/PageList";
 import { BOOK, fa, TOTAL_BOOK_CHAPTERS } from "@/lib/book";
 import { SITE_URL } from "@/lib/links";
-import "./reader.css";
+import BookReaderLayout from "@/components/book/BookReaderLayout";
 
 const title = `${BOOK.title} — نسخهٔ آنلاین`;
 const description = `خواندن آنلاین ${BOOK.title}؛ ${fa(BOOK.pages)} صفحه، ${fa(TOTAL_BOOK_CHAPTERS)} فصل، رایگان و بدون دانلود.`;
@@ -27,12 +27,12 @@ export const metadata: Metadata = {
 
 export default function BookPage() {
   return (
-    <>
+    <BookReaderLayout>
       <a className="skip" href="#pages">
         پرش به متن کتاب
       </a>
       <ReaderHeader />
       <PageList />
-    </>
+    </BookReaderLayout>
   );
 }
