@@ -39,9 +39,9 @@ export const BOOK = {
   pdfFile: "Nextjs16-Persian-Guide.pdf",
   epubFile: "Nextjs16-Persian-Guide.epub",
   socialCard: "social-card.png",
-  /** Stored pixel size of every `public/book/pages/*.webp` (2x the 820px paint width). */
-  pageWidth: 1640,
-  pageHeight: 2321,
+  /** Stored pixel size of every `public/book/pages/*.webp` (3x the 820px paint width). */
+  pageWidth: 2460,
+  pageHeight: 3482,
 } as const;
 
 export const BOOK_PARTS: BookPart[] = [

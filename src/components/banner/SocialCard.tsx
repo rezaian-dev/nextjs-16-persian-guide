@@ -11,7 +11,7 @@ export default function SocialCard() {
         <span className="size-2 rounded-full bg-cyan-300 shadow-[0_0_16px_#67e8f9]" />
         راهنمای فارسی توسعهٔ وب
       </div>
-      <div dir="ltr" className="absolute top-12 left-14 font-mono text-[11px] tracking-[0.22em] text-slate-400">THE PERSIAN HANDBOOK / 01</div>
+      <div dir="ltr" className="absolute top-12 left-14 font-mono text-[14px] tracking-[0.12em] text-slate-200">THE PERSIAN HANDBOOK / 01</div>
 
       <div className="absolute top-[128px] right-14 w-[690px]">
         <h1 className="text-[51px] font-extrabold leading-[1.45] tracking-tight">مرجع جامع <span dir="ltr" className="inline-block text-cyan-200">Next.js 16</span></h1>
@@ -33,17 +33,17 @@ export default function SocialCard() {
           {/* Official wordmark from vercel/next.js create-next-app template. */}
           <img src={asset("/nextjs-wordmark.svg")} alt="Next.js" width={236} height={48} className="h-auto w-[236px] invert" />
           <div className="mt-6 font-sans text-[126px] font-extrabold leading-none tracking-[-0.08em] text-white">16<span className="text-cyan-300">.</span></div>
-          <div className="mt-6 font-mono text-[10px] tracking-[0.23em] text-slate-400">LEARN. BUILD. SHIP.</div>
+          <div className="mt-6 font-mono text-[15px] tracking-[0.12em] text-slate-200">LEARN. BUILD. SHIP.</div>
         </div>
-        <span className="absolute -right-5 -bottom-3 rounded-xl border border-cyan-200/30 bg-[#122633] px-5 py-3 font-mono text-[12px] text-cyan-100 shadow-xl">App Router → Production</span>
+        <span className="absolute -right-5 -bottom-3 rounded-xl border border-cyan-200/30 bg-[#122633] px-5 py-3 font-mono text-[16px] text-cyan-100 shadow-xl">App Router → Production</span>
       </div>
 
       <div className="absolute inset-x-14 bottom-[94px] h-px bg-white/10" />
       <div className="absolute right-14 bottom-10 flex items-center gap-3">
-        <img src={asset("/author.webp")} alt="" width={38} height={38} className="size-[38px] rounded-full border border-white/20 object-cover" />
-        <div><p className="text-[15px] font-bold">محمدرضا رضائیان</p><p className="mt-1 text-[11px] text-slate-400">نویسندهٔ راهنمای فارسی Next.js</p></div>
+        <img src={asset("/author.webp")} alt="" width={52} height={52} className="size-[52px] rounded-full border border-white/20 object-cover" />
+        <div><p className="text-[24px] font-bold">محمدرضا رضائیان</p><p className="mt-1 text-[18px] text-slate-200">نویسندهٔ راهنمای فارسی Next.js</p></div>
       </div>
-      <div dir="ltr" className="absolute bottom-12 left-14 flex items-center gap-4 font-mono text-[12px] text-slate-400"><span className="text-cyan-200">READ ONLINE</span><span className="text-slate-600">/</span>PDF<span className="text-slate-600">/</span>EPUB</div>
+      <div dir="ltr" className="absolute bottom-12 left-14 flex items-center gap-4 font-mono text-[20px] font-semibold text-slate-100"><span className="text-cyan-200">READ ONLINE</span><span className="text-slate-600">/</span>PDF<span className="text-slate-600">/</span>EPUB</div>
     </div>
   );
 }
