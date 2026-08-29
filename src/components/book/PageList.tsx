@@ -19,7 +19,7 @@ function pageFile(page: number): string {
 /**
  * The typeset pages of the online edition.
  *
- * Every page of the print PDF is shown in reading order as a sharp 2x WebP
+ * Every page of the print PDF is shown in reading order as a lossless 3x WebP
  * figure; a `#ch-NN` anchor head is dropped wherever a chapter starts so the
  * chapter list and README can deep-link to it. Only the first two images are
  * eager — the rest carry `loading="lazy"` plus intrinsic dimensions, so the
@@ -31,6 +31,7 @@ export default function PageList() {
   return (
     <>
       <main id="pages" className="pages">
+        <p className="text-center text-sm leading-7 text-sub">برای بزرگ‌نمایی و دیدن جزئیات، روی تصویر هر صفحه بزنید تا نسخهٔ باکیفیت در تب جدید باز شود.</p>
         {Array.from({ length: TOTAL_PAGES }, (_, i) => i + 1).map((page) => {
           const chapter = chapterOnPage(page);
           const part = chapter ? partOf(chapter.num) : undefined;
@@ -46,6 +47,7 @@ export default function PageList() {
                 </div>
               )}
               <figure className="pg" id={`p-${String(page).padStart(3, "0")}`}>
+                <a href={asset(`/book/pages/${pageFile(page)}`)} target="_blank" rel="noopener" aria-label={`نمایش صفحه ${fa(page)} در اندازهٔ کامل`} className="block cursor-zoom-in">
                 <img
                   src={asset(`/book/pages/${pageFile(page)}`)}
                   width={BOOK.pageWidth}
@@ -54,6 +56,7 @@ export default function PageList() {
                   decoding="async"
                   loading={page <= 2 ? undefined : "lazy"}
                 />
+                </a>
                 <figcaption>{fa(page)}</figcaption>
               </figure>
             </Fragment>

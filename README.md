@@ -10,7 +10,7 @@
 
 [🌐 مطالعهٔ آنلاین](https://rezaian-dev.github.io/nextjs-16-persian-guide/book/) · [📑 فهرست فصل‌ها](https://rezaian-dev.github.io/nextjs-16-persian-guide/chapters/) · [📕 دریافت PDF](https://rezaian-dev.github.io/nextjs-16-persian-guide/pdf/Nextjs16-Persian-Guide.pdf) · [📗 دریافت EPUB](https://rezaian-dev.github.io/nextjs-16-persian-guide/pdf/Nextjs16-Persian-Guide.epub)
 
-<img src="./public/social-card.png" alt="مرجع جامع Next.js 16 به زبان فارسی، نوشتهٔ محمدرضا رضائیان" width="880">
+<a href="./public/social-card.png"><img src="./public/social-card.png" alt="مرجع جامع Next.js 16 به زبان فارسی، نوشتهٔ محمدرضا رضائیان — برای مشاهده در اندازهٔ کامل کلیک کنید" width="880"></a>
 
 </div>
 
