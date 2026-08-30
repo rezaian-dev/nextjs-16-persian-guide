@@ -38,12 +38,18 @@ export default function SocialCard() {
         <span className="absolute -right-5 -bottom-3 rounded-xl border border-cyan-200/30 bg-[#122633] px-5 py-3 font-mono text-[16px] text-cyan-100 shadow-xl">App Router → Production</span>
       </div>
 
-      <div className="absolute inset-x-14 bottom-[94px] h-px bg-white/10" />
-      <div className="absolute right-14 bottom-10 flex items-center gap-3">
-        <img src={asset("/author.webp")} alt="" width={52} height={52} className="size-[52px] rounded-full border border-white/20 object-cover" />
-        <div><p className="text-[24px] font-bold">محمدرضا رضائیان</p><p className="mt-1 text-[18px] text-slate-200">نویسندهٔ راهنمای فارسی Next.js</p></div>
-      </div>
-      <div dir="ltr" className="absolute bottom-12 left-14 flex items-center gap-4 font-mono text-[20px] font-semibold text-slate-100"><span className="text-cyan-200">READ ONLINE</span><span className="text-slate-600">/</span>PDF<span className="text-slate-600">/</span>EPUB</div>
+      <footer data-banner-footer className="absolute inset-x-14 bottom-0 flex h-[116px] items-center justify-between border-t border-white/10 py-6">
+        <div data-footer-content className="flex items-center gap-3">
+          <img src={asset("/author.webp")} alt="" width={52} height={52} className="size-[52px] shrink-0 rounded-full border border-white/20 object-cover" />
+          <div>
+            <p className="text-[24px] font-bold leading-8">محمدرضا رضائیان</p>
+            <p className="mt-1 text-[18px] leading-7 text-slate-200">نویسندهٔ راهنمای فارسی Next.js</p>
+          </div>
+        </div>
+        <div data-footer-content dir="ltr" className="flex items-center gap-4 font-mono text-[20px] font-semibold leading-7 text-slate-100">
+          <span className="text-cyan-200">READ ONLINE</span><span className="text-slate-600">/</span>PDF<span className="text-slate-600">/</span>EPUB
+        </div>
+      </footer>
     </div>
   );
 }
